@@ -514,12 +514,12 @@ for (let i = 0; i < 3; i++) {
       `;
       cardList.appendChild(cardDiv);
       cardDiv.addEventListener("click", e => {
+          if(selectedCardCount === 0){
+                selectedCards.innerHTML = "";
+              } 
           if(selectedCardCount < 3){
               //Add the selected card to the selected card container
               selectedCardCount++;
-              if(selectedCardCount === 0){
-                selectedCards.innerHTML = "";
-              }              
               selectedCards.appendChild(cardDiv.cloneNode(true));
               cardDiv.classList.add("selected");
           }
