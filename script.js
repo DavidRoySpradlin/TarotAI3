@@ -496,6 +496,25 @@ generateBtn.addEventListener("click", async () => {
   const selectedCards = document.getElementById("selected-cards");
   
   let selectedCardCount = 0;
+
+  // Create 3 empty card containers
+for (let i = 0; i < 3; i++) {
+  const emptyCard = document.createElement("div");
+  emptyCard.classList.add("empty-card");
+  selectedCards.appendChild(emptyCard);
+}
+
+cardDiv.addEventListener("click", e => {
+  if(selectedCardCount < 3){
+      //get the empty card container
+      const emptyCard = selectedCards.querySelector(".empty-card:first-child");
+      //replace the empty card container with the selected card
+      emptyCard.replaceWith(cardDiv.cloneNode(true));
+      cardDiv.classList.add("selected");
+      selectedCardCount++;
+  }
+});
+
   
   // create a div for each card and add it to the card list
   tarotDeck.forEach((card) => {

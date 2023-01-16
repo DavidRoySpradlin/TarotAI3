@@ -168,3 +168,13 @@ body {
     background-color: #270091;
     border-color: rgb(9, 246, 132)  
   }
+
+  .empty-card {
+    width: 200px;
+    height: 300px;
+    border: 1px solid gray;
+    margin: 20px;
+    padding: 10px;
+    box-shadow: 2px 2px 2px gray;
+    background-color: #fff;
+}
