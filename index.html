@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Tarot AI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#reading">Generate Reading</a></li>
+        <li><a href="#manual">Manual Selection</a></li>
+      </ul>
+    </nav>
+    <div id="home">
+      <h1>Welcome to the Tarot AI</h1>
+      <img src="tarotcardstransparent.png" alt="Tarot Card Deck">
+      <p>Our website offers a convenient and easy way to get a 3 card tarot card reading. Click the button below to generate a reading and gain insight into your current situation.</p>
+      <a href="#reading" class="generate-reading-btn">Generate Reading</a>
+    </div>
+    <div id="reading" class="hidden">
+      <h1>Generate a Reading</h1>
+      <button id="generate-btn">Generate</button>
+      <div id="reading-card-container"></div>
+      <textarea id="response-text-reading" rows="20" cols="50" placeholder="Meaning will display here..." readonly></textarea>
+      
+      <div id="card-container"></div>
+    </div>
+    <div id="manual" class="hidden">
+      <h1>Manual Card Selection</h1>
+      <div id="selected-cards"></div>
+      <!-- HTML for the button -->
+      <button id="generate-manual-meaning-btn">Generate Meaning</button>
+      <div id="response-container"></div>
+      <textarea id="response-text-manual" rows="20" cols="50" placeholder="Meaning will display here..." readonly></textarea>
+      <div id="card-list"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
