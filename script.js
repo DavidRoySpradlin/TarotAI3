@@ -490,7 +490,6 @@ generateBtn.addEventListener("click", async () => {
     }
 });
   
-  
   // JavaScript for manual card selection
   const cardList = document.getElementById("card-list");
   const selectedCards = document.getElementById("selected-cards");
@@ -518,6 +517,9 @@ for (let i = 0; i < 3; i++) {
           if(selectedCardCount < 3){
               //Add the selected card to the selected card container
               selectedCardCount++;
+              if(selectedCardCount === 0){
+                selectedCards.innerHTML = "";
+              }              
               selectedCards.appendChild(cardDiv.cloneNode(true));
               cardDiv.classList.add("selected");
           }
