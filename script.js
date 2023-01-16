@@ -435,136 +435,126 @@ const tarotDeck = [
 ];
 
 generateBtn.addEventListener("click", async () => {
-    // generate 3 random cards from the tarot deck
-    const cards = [
-      tarotDeck[Math.floor(Math.random() * tarotDeck.length)],
-      tarotDeck[Math.floor(Math.random() * tarotDeck.length)],
-      tarotDeck[Math.floor(Math.random() * tarotDeck.length)],
-    ];
-  
-    // clear the card container
-    cardContainer.innerHTML = "";
-  
-    // create a div for each card and add it to the card container
-    cards.forEach((card) => {
-      const cardDiv = document.createElement("div");
-      cardDiv.classList.add("card");
-      cardDiv.innerHTML = `
-        <img src="${card.img}" alt="${card.name}">
-        <h2>${card.name}</h2>
-        <p>${card.meaning}</p>
-      `;
-      cardContainer.appendChild(cardDiv);
-    });
+  // generate 3 random cards from the tarot deck
+  const cards = [
+    tarotDeck[Math.floor(Math.random() * tarotDeck.length)],
+    tarotDeck[Math.floor(Math.random() * tarotDeck.length)],
+    tarotDeck[Math.floor(Math.random() * tarotDeck.length)],
+  ];
 
-    //get the names of the cards
-    const selectedCardNames = [];
-    const cardDivs = document.querySelectorAll("#reading .card");
-    cardDivs.forEach(cardDiv => {
-        selectedCardNames.push(cardDiv.querySelector("h2").textContent);
-    });
+  // clear the card container
+  cardContainer.innerHTML = "";
 
-    if(selectedCardNames.length === 3){
-    const apiKey = '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';
-    const cards = selectedCardNames.join(', ');
-    const prompt = `What is the overall meaning of the three cards selected ${cards}?`;
-    const response = await axios({
-        method: 'post',
-        url: 'https://api.openai.com/v1/engines/text-davinci-002/completions',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
-        },
-        data: {
-            prompt: prompt,
-            max_tokens: 100
-        }
-    });
-    if(response && response.data && response.data.choices && response.data.choices[0]){
-        readingResponseText.value = response.data.choices[0].text;
-    } else {
-        console.log("Error generating response from API");
-    }
-    } else {
-        console.log("Please select 3 cards to generate a response.")
-    }
+  // create a div for each card and add it to the card container
+  cards.forEach((card) => {
+    const cardDiv = document.createElement("div");
+    cardDiv.classList.add("card");
+    cardDiv.innerHTML = `
+      <img src="${card.img}" alt="${card.name}">
+      <h2>${card.name}</h2>
+      <p>${card.meaning}</p>
+    `;
+    cardContainer.appendChild(cardDiv);
+  });
+
+  //get the names of the cards
+  const selectedCardNames = [];
+  const cardDivs = document.querySelectorAll("#reading .card");
+  cardDivs.forEach(cardDiv => {
+      selectedCardNames.push(cardDiv.querySelector("h2").textContent);
+  });
+
+  if(selectedCardNames.length === 3){
+  const apiKey = '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';
+  const cards = selectedCardNames.join(', ');
+  const prompt = `What is the overall meaning of the three cards selected ${cards}?`;
+  const response = await axios({
+      method: 'post',
+      url: 'https://api.openai.com/v1/engines/text-davinci-002/completions',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`
+      },
+      data: {
+          prompt: prompt,
+          max_tokens: 100
+      }
+  });
+  if(response && response.data && response.data.choices && response.data.choices[0]){
+      readingResponseText.value = response.data.choices[0].text;
+  } else {
+      console.log("Error generating response from API");
+  }
+  } else {
+      console.log("Please select 3 cards to generate a response.")
+  }
 });
-  
- // JavaScript for manual card selection
+
+
+// JavaScript for manual card selection
 const cardList = document.getElementById("card-list");
 const selectedCards = document.getElementById("selected-cards");
 
 let selectedCardCount = 0;
 
-// Create 3 empty card containers
-for (let i = 0; i < 3; i++) {
-  const emptyCard = document.createElement("div");
-  emptyCard.classList.add("empty-card");
-  emptyCard.setAttribute("id", `empty-card-${i+1}`);
-  selectedCards.appendChild(emptyCard);
-}
-
 // create a div for each card and add it to the card list
 tarotDeck.forEach((card) => {
-  const cardDiv = document.createElement("div");
-  cardDiv.classList.add("card");
-  cardDiv.innerHTML = `
-    <img src="${card.img}" alt="${card.name}">
-    <h2>${card.name}</h2>
-    <p>${card.meaning}</p>
-  `;
-  cardList.appendChild(cardDiv);
-  cardDiv.addEventListener("click", e => {
-    if (selectedCardCount < 3) {
-      //get the empty card container
-      const emptyCard = selectedCards.querySelector(`.empty-card:nth-child(${selectedCardCount+1})`);
-      //replace the empty card container with the selected card
-      emptyCard.innerHTML = cardDiv.innerHTML;
-      cardDiv.classList.add("selected");
-      selectedCardCount++;
-    }
-  });
+    const cardDiv = document.createElement("div");
+    cardDiv.classList.add("card");
+    cardDiv.innerHTML = `
+      <img src="${card.img}" alt="${card.name}">
+      <h2>${card.name}</h2>
+      <p>${card.meaning}</p>
+    `;
+    cardList.appendChild(cardDiv);
+    cardDiv.addEventListener("click", e => {
+        if(selectedCardCount < 3){
+            //Add the selected card to the selected card container
+            selectedCardCount++;
+            selectedCards.appendChild(cardDiv.cloneNode(true));
+            cardDiv.classList.add("selected");
+        }
+    });
 });
+const generateReadingMeaningBtn = document.getElementById("generate-reading-meaning-btn");
+const generateManualMeaningBtn = document.getElementById("generate-manual-meaning-btn");
+const responseContainer = document.getElementById("response-container");
+const readingCardContainer = document.getElementById("reading-card-container");
+const manualResponseText = document.getElementById("response-text-manual");
+const readingResponseText = document.getElementById("response-text-reading");
 
-
-  const generateReadingMeaningBtn = document.getElementById("generate-reading-meaning-btn");
-  const generateManualMeaningBtn = document.getElementById("generate-manual-meaning-btn");
-  const responseContainer = document.getElementById("response-container");
-  const readingCardContainer = document.getElementById("reading-card-container");
-  const manualResponseText = document.getElementById("response-text-manual");
-  const readingResponseText = document.getElementById("response-text-reading");
-
-  const selectedCardNames = [];
+const selectedCardNames = [];
 
 generateManualMeaningBtn.addEventListener("click", async () => {
-    //Get the selected cards names
-    const selectedCardDivs = document.querySelectorAll("#selected-cards .card");
-    selectedCardDivs.forEach(cardDiv => {
-        selectedCardNames.push(cardDiv.querySelector("h2").textContent);
-    });
+  //Get the selected cards names
+  const selectedCardDivs = document.querySelectorAll("#selected-cards .card");
+  selectedCardDivs.forEach(cardDiv => {
+      selectedCardNames.push(cardDiv.querySelector("h2").textContent);
+  });
 
-    if(selectedCardNames.length === 3){
-        const apiKey = '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';
-        const cards = selectedCardNames.join(', ');
-        const prompt = `What is the overall meaning of the three cards selected ${cards}?`;
-        const response = await axios({
-            method: 'post',
-            url: 'https://api.openai.com/v1/engines/text-davinci-002/completions',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey}`
-            },
-            data: {
-                prompt: prompt,
-                max_tokens: 100
-                }
-                });
-                if(response && response.data && response.data.choices && response.data.choices[0]){
-                    manualResponseText.value = response.data.choices[0].text;
-                } else {
-                    console.log("Error generating response from API");
-                }
-            } else {
-                console.log("Please select 3 cards to generate a response.")
-            }
-        });
+  if(selectedCardNames.length === 3){
+      const apiKey = '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';
+      const cards = selectedCardNames.join(', ');
+      const prompt = `What is the overall meaning of the three cards selected ${cards}?`;
+      const response = await axios({
+          method: 'post',
+          url: 'https://api.openai.com/v1/engines/text-davinci-002/completions',
+          headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${apiKey}`
+          },
+          data: {
+              prompt: prompt,
+              max_tokens: 100
+              }
+              });
+              if(response && response.data && response.data.choices && response.data.choices[0]){
+                  manualResponseText.value = response.data.choices[0].text;
+              } else {
+                  console.log("Error generating response from API");
+              }
+          } else {
+              console.log("Please select 3 cards to generate a response.")
+          }
+      });
+
