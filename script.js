@@ -515,8 +515,14 @@ for (let i = 0; i < 3; i++) {
       cardList.appendChild(cardDiv);
       cardDiv.addEventListener("click", e => {
           if(selectedCardCount === 0){
-                selectedCards.innerHTML = "";
-              } 
+            document.getElementById("empty-card-1").innerHTML = "";
+          }
+          if(selectedCardCount === 1){
+            document.getElementById("empty-card-2").innerHTML = "";
+          }
+          if(selectedCardCount === 2){
+            document.getElementById("empty-card-3").innerHTML = "";
+          }
           if(selectedCardCount < 3){
               //Add the selected card to the selected card container
               selectedCardCount++;
