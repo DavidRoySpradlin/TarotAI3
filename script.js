@@ -490,58 +490,42 @@ generateBtn.addEventListener("click", async () => {
     }
 });
   
-  // JavaScript for manual card selection
-  const cardList = document.getElementById("card-list");
-  const selectedCards = document.getElementById("selected-cards");
-  
-  let selectedCardCount = 0;
+ // JavaScript for manual card selection
+const cardList = document.getElementById("card-list");
+const selectedCards = document.getElementById("selected-cards");
 
-  // Create 3 empty card containers
+let selectedCardCount = 0;
+
+// Create 3 empty card containers
 for (let i = 0; i < 3; i++) {
   const emptyCard = document.createElement("div");
   emptyCard.classList.add("empty-card");
+  emptyCard.setAttribute("id", `empty-card-${i+1}`);
   selectedCards.appendChild(emptyCard);
 }
-  
-  // create a div for each card and add it to the card list
-  tarotDeck.forEach((card) => {
-      const cardDiv = document.createElement("div");
-      cardDiv.classList.add("card");
-      cardDiv.innerHTML = `
-        <img src="${card.img}" alt="${card.name}">
-        <h2>${card.name}</h2>
-        <p>${card.meaning}</p>
-      `;
-      cardList.appendChild(cardDiv);
-      cardDiv.addEventListener("click", e => {
-          if(selectedCardCount === 0){
-            document.getElementById("empty-card-1").innerHTML = "";
-          }
-          if(selectedCardCount === 1){
-            document.getElementById("empty-card-2").innerHTML = "";
-          }
-          if(selectedCardCount === 2){
-            document.getElementById("empty-card-3").innerHTML = "";
-          }
-          if(selectedCardCount < 3){
-              //Add the selected card to the selected card container
-              selectedCardCount++;
-              selectedCards.appendChild(cardDiv.cloneNode(true));
-              cardDiv.classList.add("selected");
-          }
-      });
-  });
-  
+
+// create a div for each card and add it to the card list
+tarotDeck.forEach((card) => {
+  const cardDiv = document.createElement("div");
+  cardDiv.classList.add("card");
+  cardDiv.innerHTML = `
+    <img src="${card.img}" alt="${card.name}">
+    <h2>${card.name}</h2>
+    <p>${card.meaning}</p>
+  `;
+  cardList.appendChild(cardDiv);
   cardDiv.addEventListener("click", e => {
-  if(selectedCardCount < 3){
+    if (selectedCardCount < 3) {
       //get the empty card container
-      const emptyCard = selectedCards.querySelector(".empty-card:first-child");
+      const emptyCard = selectedCards.querySelector(`.empty-card:nth-child(${selectedCardCount+1})`);
       //replace the empty card container with the selected card
-      emptyCard.replaceWith(cardDiv.cloneNode(true));
+      emptyCard.innerHTML = cardDiv.innerHTML;
       cardDiv.classList.add("selected");
       selectedCardCount++;
-  }
+    }
+  });
 });
+
 
   const generateReadingMeaningBtn = document.getElementById("generate-reading-meaning-btn");
   const generateManualMeaningBtn = document.getElementById("generate-manual-meaning-btn");
