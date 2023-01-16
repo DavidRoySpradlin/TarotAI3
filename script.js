@@ -525,6 +525,35 @@ const readingResponseText = document.getElementById("response-text-reading");
 
 const selectedCardNames = [];
 
+const searchBar = document.getElementById("search-bar");
+
+      searchBar.addEventListener("input", filterCards);
+      
+      function filterCards() {
+        const searchTerm = searchBar.value.toLowerCase();
+        const filteredCards = tarotDeck.filter(card => {
+          return card.name.toLowerCase().includes(searchTerm) || card.meaning.toLowerCase().includes(searchTerm);
+        });
+      
+        // Clear the card list
+        cardList.innerHTML = "";
+      
+        // Display the filtered cards in the card list
+        filteredCards.forEach((card) => {
+          const cardDiv = document.createElement("div");
+          cardDiv.classList.add("card");
+          cardDiv.innerHTML = `
+            <img src="${card.img}" alt="${card.name}">
+            <h2>${card.name}</h2>
+            <p>${card.meaning}</p>
+          `;
+          cardList.appendChild(cardDiv);
+        });
+      }
+      if(filteredCards.length === 0){
+        cardList.innerHTML = "No matching cards found.";
+    }
+    
 generateManualMeaningBtn.addEventListener("click", async () => {
   //Get the selected cards names
   const selectedCardDivs = document.querySelectorAll("#selected-cards .card");
@@ -557,31 +586,5 @@ generateManualMeaningBtn.addEventListener("click", async () => {
               console.log("Please select 3 cards to generate a response.")
           }     
 });
-    const searchBar = document.getElementById("search-bar");
-      searchBar.addEventListener("input", filterCards);
-      
-      function filterCards() {
-        const searchTerm = searchBar.value.toLowerCase();
-        const filteredCards = tarotDeck.filter(card => {
-          return card.name.toLowerCase().includes(searchTerm) || card.meaning.toLowerCase().includes(searchTerm);
-        });
-      
-        // Clear the card list
-        cardList.innerHTML = "";
-      
-        // Display the filtered cards in the card list
-        filteredCards.forEach((card) => {
-          const cardDiv = document.createElement("div");
-          cardDiv.classList.add("card");
-          cardDiv.innerHTML = `
-            <img src="${card.img}" alt="${card.name}">
-            <h2>${card.name}</h2>
-            <p>${card.meaning}</p>
-          `;
-          cardList.appendChild(cardDiv);
-        });
-      }
-      if(filteredCards.length === 0){
-        cardList.innerHTML = "No matching cards found.";
-    }
+    
       
