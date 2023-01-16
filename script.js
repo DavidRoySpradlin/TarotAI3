@@ -36,400 +36,400 @@ const cardContainer = document.getElementById("card-container");
 const tarotDeck = [
   {
     name: "The Fool",
-    img: "the-fool.jpg",
+    img: "assets/the-fool.jpg",
     meaning: "The Fool represents new beginnings, spontaneity, and trust in the universe."
   },
   {
     name: "The Magician",
-    img: "the-magician.jpg",
+    img: "assets/the-magician.jpg",
     meaning: "The Magician represents power, creativity, and the ability to manifest your desires."
   },
   // more cards...
   {
     name: "The High Priestess",
-    img: "the-high-priestess.jpg",
+    img: "assets/the-high-priestess.jpg",
     meaning: "The High Priestess represents intuition, secrets, and the unconscious mind."
   },
   {
     name: "The Empress",
-    img: "the-empress.jpg",
+    img: "assets/the-empress.jpg",
     meaning: "The Empress represents motherhood, nurturing, and abundance."
   },
   {
     name: "The Emperor",
-    img: "the-emperor.jpg",
+    img: "assets/the-emperor.jpg",
     meaning: "The Emperor represents authority, stability, and structure."
   },
   {
     name: "The Hierophant",
-    img: "the-hierophant.jpg",
+    img: "assets/the-hierophant.jpg",
     meaning: "The Hierophant represents tradition, spirituality, and guidance."
   },
   {
     name: "The Lovers",
-    img: "the-lovers.jpg",
+    img: "assets/the-lovers.jpg",
     meaning: "The Lovers represents love, harmony, and balance."
   },
   // and so on
   {
     name: "The Chariot",
-    img: "the-chariot.jpg",
+    img: "assets/the-chariot.jpg",
     meaning: "The Chariot represents determination, control, and willpower."
   },
   {
     name: "Strength",
-    img: "strength.jpg",
+    img: "assets/strength.jpg",
     meaning: "Strength represents inner power, courage, and compassion."
   },
   {
     name: "The Hermit",
-    img: "the-hermit.jpg",
+    img: "assets/the-hermit.jpg",
     meaning: "The Hermit represents introspection, wisdom, and inner guidance."
   },
   {
     name: "Wheel of Fortune",
-    img: "wheel-of-fortune.jpg",
+    img: "assets/wheel-of-fortune.jpg",
     meaning: "The Wheel of Fortune represents the cyclical nature of life, destiny, and change."
   },
   {
     name: "Justice",
-    img: "justice.jpg",
+    img: "assets/justice.jpg",
     meaning: "Justice represents balance, fairness, and the consequences of one's actions."
   },
   {
     name: "The Hanged Man",
-    img: "the-hanged-man.jpg",
+    img: "assets/the-hanged-man.jpg",
     meaning: "The Hanged Man represents sacrifice, patience, and perspective."
   },
   {
     name: "Death",
-    img: "death.jpg",
+    img: "assets/death.jpg",
     meaning: "Death represents transformation, change, and rebirth."
   },
   {
     name: "Temperance",
-    img: "temperance.jpg",
+    img: "assets/temperance.jpg",
     meaning: "Temperance represents balance, self-control, and harmony."
   },
   {
     name: "The Devil",
-    img: "the-devil.jpg",
+    img: "assets/the-devil.jpg",
     meaning: "The Devil represents temptation, materialism, and addiction."
   },
   // and so on
   {
     name: "The Tower",
-    img: "the-tower.jpg",
+    img: "assets/the-tower.jpg",
     meaning: "The Tower represents sudden change, upheaval, and chaos."
   },
   {
     name: "The Star",
-    img: "the-star.jpg",
+    img: "assets/the-star.jpg",
     meaning: "The Star represents hope, inspiration, and aspiration."
   },
   {
     name: "The Moon",
-    img: "the-moon.jpg",
+    img: "assets/the-moon.jpg",
     meaning: "The Moon represents intuition, emotions, and the subconscious."
   },
   {
     name: "The Sun",
-    img: "the-sun.jpg",
+    img: "assets/the-sun.jpg",
     meaning: "The Sun represents vitality, success, and positivity."
   },
   {
     name: "Judgement",
-    img: "judgement.jpg",
+    img: "assets/judgement.jpg",
     meaning: "Judgement represents accountability, self-evaluation, and redemption."
   },
   {
     name: "The World",
-    img: "the-world.jpg",
+    img: "assets/the-world.jpg",
     meaning: "The World represents completion, wholeness, and unity."
   },
   {
     name: "Ace of Wands",
-    img: "ace-of-wands.jpg",
+    img: "assets/ace-of-wands.jpg",
     meaning: "The Ace of Wands represents new beginnings, inspiration, and creativity."
   },
   {
     name: "Two of Wands",
-    img: "two-of-wands.jpg",
+    img: "assets/two-of-wands.jpg",
     meaning: "The Two of Wands represents planning, decision-making, and potential."
   },
   {
     name: "Three of Wands",
-    img: "three-of-wands.jpg",
+    img: "assets/three-of-wands.jpg",
     meaning: "The Three of Wands represents expansion, growth, and exploration."
   },
   {
     name: "Four of Wands",
-    img: "four-of-wands.jpg",
+    img: "assets/four-of-wands.jpg",
     meaning: "The Four of Wands represents celebration, stability, and harmony."
   },
   {
     name: "Five of Wands",
-    img: "five-of-wands.jpg",
+    img: "assets/five-of-wands.jpg",
     meaning: "The Five of Wands represents competition, conflict, and challenges."
   },
   {
     name: "Six of Wands",
-    img: "six-of-wands.jpg",
+    img: "assets/six-of-wands.jpg",
     meaning: "The Six of Wands represents victory, success, and recognition."
   },
   {
     name: "Seven of Wands",
-    img: "seven-of-wands.jpg",
+    img: "assets/seven-of-wands.jpg",
     meaning: "The Seven of Wands represents defense, perseverance, and courage."
   },
   {
     name: "Eight of Wands",
-    img: "eight-of-wands.jpg",
+    img: "assets/eight-of-wands.jpg",
     meaning: "The Eight of Wands represents swift action, communication, and travel."
   },
   {
     name: "Nine of Wands",
-    img: "nine-of-wands.jpg",
+    img: "assets/nine-of-wands.jpg",
     meaning: "The Nine of Wands represents resilience, preparation, and inner strength."
   },
   {
     name: "Ten of Wands",
-    img: "ten-of-wands.jpg",
+    img: "assets/ten-of-wands.jpg",
     meaning: "The Ten of Wands represents burden, responsibility, and burnout."
   },
   {
     name: "Page of Wands",
-    img: "page-of-wands.jpg",
+    img: "assets/page-of-wands.jpg",
     meaning: "The Page of Wands represents enthusiasm, curiosity, and new ideas."
   },
   {
     name: "Knight of Wands",
-    img: "knight-of-wands.jpg",
+    img: "assets/knight-of-wands.jpg",
     meaning: "The Knight of Wands represents action, adventure, and impulsiveness."
   },
   {
     name: "Queen of Wands",
-    img: "queen-of-wands.jpg",
+    img: "assets/queen-of-wands.jpg",
     meaning: "The Queen of Wands represents confidence, creativity, and passion."
   },
   {
     name: "King of Wands",
-    img: "king-of-wands.jpg",
+    img: "assets/king-of-wands.jpg",
     meaning: "The King of Wands represents leadership, vision, and determination."
   },
   {
     name: "Ace of Cups",
-    img: "ace-of-cups.jpg",
+    img: "assets/ace-of-cups.jpg",
     meaning: "The Ace of Cups represents new emotions, love, and compassion."
   },
   {
     name: "Two of Cups",
-    img: "two-of-cups.jpg",
+    img: "assets/two-of-cups.jpg",
     meaning: "The Two of Cups represents balance, harmony, and partnership."
   },
   {
     name: "Three of Cups",
-    img: "three-of-cups.jpg",
+    img: "assets/three-of-cups.jpg",
     meaning: "The Three of Cups represents celebration, friendship, and joy."
   },
   {
     name: "Four of Cups",
-    img: "four-of-cups.jpg",
+    img: "assets/four-of-cups.jpg",
     meaning: "The Four of Cups represents introspection, contemplation, and apathy."
   },
   {
     name: "Five of Cups",
-    img: "five-of-cups.jpg",
+    img: "assets/five-of-cups.jpg",
     meaning: "The Five of Cups represents loss, grief, and disappointment."
   },
   {
     name: "Six of Cups",
-    img: "six-of-cups.jpg",
+    img: "assets/six-of-cups.jpg",
     meaning: "The Six of Cups represents nostalgia, childhood, and forgiveness."
   },
   {
     name: "Seven of Cups",
-    img: "seven-of-cups.jpg",
+    img: "assets/seven-of-cups.jpg",
     meaning: "The Seven of Cups represents delusions, difficulty with making decisions, dreams, fantasies, illusion",
   },
   {
     name: "Eight of Cups",
-    img: "eight-of-cups.jpg",
+    img: "assets/eight-of-cups.jpg",
     meaning: "The Eight of Cups represents abandoning, breaking up, disapointment, distancing yourself, ending a relationship (possibly toxic)",
   },
   {
     name: "Nine of Cups",
-    img: "nine-of-cups.jpg",
+    img: "assets/nine-of-cups.jpg",
     meaning: "The Nine of Cups represents achievements, contentment, fulfillment of wishes, material comfort, pleasure, recognition, satisfaction",
   },
   {
     name: "Ten of Cups",
-    img: "ten-of-cups.jpg",
+    img: "assets/ten-of-cups.jpg",
     meaning: "The Ten of Cups represents a dream coming true, emotional security, emotional stability, familly, fulfillment, hapiness, harmony",
   },
   {
     name: "Page of Cups",
-    img: "page-of-cups.jpg",
+    img: "assets/page-of-cups.jpg",
     meaning: "The Page of Cups represents curiosity, dreamer, emotional freedom, head in the clouds, idealism, innocence, intuition, naivety, romance",
   },
   {
     name: "Knight of Cups",
-    img: "knight-of-cups.jpg",
+    img: "assets/knight-of-cups.jpg",
     meaning: "The Knight of Cups represents beauty, charm, creativity, dreamer, emotional transformation, friendly atmosphere, idealist, imagination",
   },
   {
     name: "Queen of Cups",
-    img: "queen-of-cups.jpg",
+    img: "assets/queen-of-cups.jpg",
     meaning: "The Queen of Cups represents a loving person (usually a woman), big heart, caring, charm, clairvoyence, compassion, emotionality"
   },
   {
     name: "King of Cups",
-    img: "king-of-cups.jpg",
+    img: "assets/king-of-cups.jpg",
     meaning: "The King of Cups represents compassion, counseling, devotion, diplomacy, emotional balance, emotional security"
   },
   {
     name: "Ace of Swords",
-    img: "ace-of-swords.jpg",
+    img: "assets/ace-of-swords.jpg",
     meaning: "The Ace of Swords represents clarity, decision-making, and truth."
   },
   {
     name: "Two of Swords",
-    img: "two-of-swords.jpg",
+    img: "assets/two-of-swords.jpg",
     meaning: "The Two of Swords represents balance, indecision, and inner conflict."
   },
   {
     name: "Three of Swords",
-    img: "three-of-swords.jpg",
+    img: "assets/three-of-swords.jpg",
     meaning: "The Three of Swords represents heartbreak, betrayal, and emotional pain."
   },
   {
     name: "Four of Swords",
-    img: "four-of-swords.jpg",
+    img: "assets/four-of-swords.jpg",
     meaning: "The Four of Swords represents rest, contemplation, and inner peace."
   },
   {
     name: "Five of Swords",
-    img: "five-of-swords.jpg",
+    img: "assets/five-of-swords.jpg",
     meaning: "The Five of Swords represents defeat, loss, and aggressive behavior."
   },
   {
     name: "Six of Swords",
-    img: "six-of-swords.jpg",
+    img: "assets/six-of-swords.jpg",
     meaning: "The Six of Swords represents transition, moving on, and healing."
   },
   {
     name: "Seven of Swords",
-    img: "seven-of-swords.jpg",
+    img: "assets/seven-of-swords.jpg",
     meaning: "The Seven of Swords represents deception, cleverness, and stealth."
   },
   {
     name: "Eight of Swords",
-    img: "eight-of-swords.jpg",
+    img: "assets/eight-of-swords.jpg",
     meaning: "The Eight of Swords represents restriction, confinement, and limitations."
   },
   {
     name: "Nine of Swords",
-    img: "nine-of-swords.jpg",
+    img: "assets/nine-of-swords.jpg",
     meaning: "The Nine of Swords represents fear, anxiety, and nightmares."
   },
   {
     name: "Ten of Swords",
-    img: "ten-of-swords.jpg",
+    img: "assets/ten-of-swords.jpg",
     meaning: "The Ten of Swords represents endings, finality, and release."
   },
   {
     name: "Page of Swords",
-    img: "page-of-swords.jpg",
+    img: "assets/page-of-swords.jpg",
     meaning: "The Page of Swords represents communication, news, and curiosity."
   },
   {
     name: "Knight of Swords",
-    img: "knight-of-swords.jpg",
+    img: "assets/knight-of-swords.jpg",
     meaning: "The Knight of Swords represents action, ambition, and impulsiveness."
   },
   {
     name: "Queen of Swords",
-    img: "queen-of-swords.jpg",
+    img: "assets/queen-of-swords.jpg",
     meaning: "The Queen of Swords represents intelligence, wisdom, and objectivity."
   },
   {
     name: "King of Swords",
-    img: "king-of-swords.jpg",
+    img: "assets/king-of-swords.jpg",
     meaning: "The King of Swords represents logic, justice, and authority."
   },
   {
     name: "King of Swords",
-    img: "king-of-swords.jpg",
+    img: "assets/king-of-swords.jpg",
     meaning: "The King of Swords represents logic, justice, and authority."
   },
   {
     name: "Ace of Pentacles",
-    img: "ace-of-pentacles.jpg",
+    img: "assets/ace-of-pentacles.jpg",
     meaning: "The Ace of Pentacles represents new beginnings, abundance, and material success."
   },
   {
     name: "Two of Pentacles",
-    img: "two-of-pentacles.jpg",
+    img: "assets/two-of-pentacles.jpg",
     meaning: "The Two of Pentacles represents balance, flexibility, and adaptability."
   },
   {
     name: "Three of Pentacles",
-    img: "three-of-pentacles.jpg",
+    img: "assets/three-of-pentacles.jpg",
     meaning: "The Three of Pentacles represents teamwork, collaboration, and skill."
   },
   {
     name: "Four of Pentacles",
-    img: "four-of-pentacles.jpg",
+    img: "assets/four-of-pentacles.jpg",
     meaning: "The Four of Pentacles represents security, stability, and hoarding."
   },
   {
     name: "Five of Pentacles",
-    img: "five-of-pentacles.jpg",
+    img: "assets/five-of-pentacles.jpg",
     meaning: "The Five of Pentacles represents poverty, hardship, and material loss."
   },
   {
     name: "Six of Pentacles",
-    img: "six-of-pentacles.jpg",
+    img: "assets/six-of-pentacles.jpg",
     meaning: "The Six of Pentacles represents charity, generosity, and balance in giving and receiving."
   },
   {
     name: "Seven of Pentacles",
-    img: "seven-of-pentacles.jpg",
+    img: "assets/seven-of-pentacles.jpg",
     meaning: "The Seven of Pentacles represents hard work, patience, and reaping the rewards."
   },
   {
     name: "Eight of Pentacles",
-    img: "eight-of-pentacles.jpg",
+    img: "assets/eight-of-pentacles.jpg",
     meaning: "The Eight of Pentacles represents apprenticeship, craftsmanship, and skill-building."
   },
   {
     name: "Nine of Pentacles",
-    img: "nine-of-pentacles.jpg",
+    img: "assets/nine-of-pentacles.jpg",
     meaning: "The Nine of Pentacles represents self-sufficiency, comfort, and luxury."
   },
   {
     name: "Ten of Pentacles",
-    img: "ten-of-pentacles.jpg",
+    img: "assets/ten-of-pentacles.jpg",
     meaning: "The Ten of Pentacles represents family, tradition, and inheritance."
   },
   {
     name: "Page of Pentacles",
-    img: "page-of-pentacles.jpg",
+    img: "assets/page-of-pentacles.jpg",
     meaning: "The Page of Pentacles represents study, practicality, and financial opportunities."
   },
   {
     name: "Knight of Pentacles",
-    img: "knight-of-pentacles.jpg",
+    img: "assets/knight-of-pentacles.jpg",
     meaning: "The Knight of Pentacles represents hard work, responsibility, and commitment."
   },
   {
     name: "Queen of Pentacles",
-    img: "queen-of-pentacles.jpg",
+    img: "assets/queen-of-pentacles.jpg",
     meaning: "The Queen of Pentacles represents comfort, nurturing, and practicality."
   },
   {
     name: "King of Pentacles",
-    img: "king-of-pentacles.jpg",
+    img: "assets/king-of-pentacles.jpg",
     meaning: "The King of Pentacles represents stability, wealth, and success."
   },
 ];
