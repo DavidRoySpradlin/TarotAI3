@@ -503,18 +503,6 @@ for (let i = 0; i < 3; i++) {
   emptyCard.classList.add("empty-card");
   selectedCards.appendChild(emptyCard);
 }
-
-cardDiv.addEventListener("click", e => {
-  if(selectedCardCount < 3){
-      //get the empty card container
-      const emptyCard = selectedCards.querySelector(".empty-card:first-child");
-      //replace the empty card container with the selected card
-      emptyCard.replaceWith(cardDiv.cloneNode(true));
-      cardDiv.classList.add("selected");
-      selectedCardCount++;
-  }
-});
-
   
   // create a div for each card and add it to the card list
   tarotDeck.forEach((card) => {
@@ -535,6 +523,18 @@ cardDiv.addEventListener("click", e => {
           }
       });
   });
+  
+  cardDiv.addEventListener("click", e => {
+  if(selectedCardCount < 3){
+      //get the empty card container
+      const emptyCard = selectedCards.querySelector(".empty-card:first-child");
+      //replace the empty card container with the selected card
+      emptyCard.replaceWith(cardDiv.cloneNode(true));
+      cardDiv.classList.add("selected");
+      selectedCardCount++;
+  }
+});
+
   const generateReadingMeaningBtn = document.getElementById("generate-reading-meaning-btn");
   const generateManualMeaningBtn = document.getElementById("generate-manual-meaning-btn");
   const responseContainer = document.getElementById("response-container");
