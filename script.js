@@ -525,41 +525,6 @@ const readingResponseText = document.getElementById("response-text-reading");
 
 const selectedCardNames = [];
 
-const searchForm = document.getElementById("search-form");
-const searchInput = document.getElementById("search-input");
-
-searchForm.addEventListener("submit", e => {
-  e.preventDefault();
-  const searchTerm = searchInput.value.toLowerCase();
-  cardList.innerHTML = "";
-
-  tarotDeck.forEach((card) => {
-    if (card.name.toLowerCase().includes(searchTerm) || card.meaning.toLowerCase().includes(searchTerm)) {
-      const cardDiv = document.createElement("div");
-      cardDiv.classList.add("card");
-      cardDiv.innerHTML = `
-        <img src="${card.img}" alt="${card.name}">
-        <h2>${card.name}</h2>
-        <p>${card.meaning}</p>
-      `;
-      cardList.appendChild(cardDiv);
-      
-      //Add event listener for the selected card
-      cardDiv.addEventListener("click", e => {
-        if (selectedCardCount < 3) {
-          //get the empty card container
-          const emptyCard = selectedCards.querySelector(`.empty-card:nth-child(${selectedCardCount + 1})`);
-          //replace the empty card container with the selected card
-          emptyCard.innerHTML = cardDiv.innerHTML;
-          cardDiv.classList.add("selected");
-          selectedCardCount++;
-        }
-      });
-    }
-  });
-});
-
-    
 generateManualMeaningBtn.addEventListener("click", async () => {
   //Get the selected cards names
   const selectedCardDivs = document.querySelectorAll("#selected-cards .card");
