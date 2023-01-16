@@ -555,9 +555,9 @@ generateManualMeaningBtn.addEventListener("click", async () => {
               }
           } else {
               console.log("Please select 3 cards to generate a response.")
-          }
-          
-          const searchBar = document.getElementById("search-bar");
+          }     
+});
+    const searchBar = document.getElementById("search-bar");
       searchBar.addEventListener("input", filterCards);
       
       function filterCards() {
@@ -584,6 +584,4 @@ generateManualMeaningBtn.addEventListener("click", async () => {
       if(filteredCards.length === 0){
         cardList.innerHTML = "No matching cards found.";
     }
-    
-   });
       
