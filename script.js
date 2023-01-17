@@ -756,7 +756,7 @@ tarotDeck.forEach(card => {
 // create card element
 const cardDiv = document.createElement("div");
 cardDiv.classList.add("card");
-cardDiv.innerHTML = <img src="${card.img}" alt="${card.name}"> <h2>${card.name}</h2> </img> ;
+cardDiv.innerHTML = <img src="${card.img}" alt="${card.name}"><h2>${card.name}</h2></img>  ;
 
 // add click event to card
 cardDiv.addEventListener("click", () => {
@@ -826,12 +826,5 @@ if (selectedCardNames.length === 3) {
     console.log("Error generating response from API");
   }
 } else {
-  responseTextManual.value = "Please select 3 cards";
-}
-
-
-
-init()
-
-main()
-});
+  responseTextManual.value = ("Please select 3 cards");
+};
