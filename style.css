@@ -178,3 +178,15 @@ body {
     box-shadow: 2px 2px 2px gray;
     background-color: #fff;
 }
+
+.card-category-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-category-container h4{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+}
